@@ -1,25 +1,25 @@
 <mat-toolbar>
   <button
     mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
   >
     <mat-icon>menu</mat-icon>
   </button>
-  <span>My App</span>
-  <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>share</mat-icon>
-  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="routeTo('#check-number')">
+      <mat-icon>person_search</mat-icon>
+      <span>Verificar Número</span>
+    </button>
+    <button mat-menu-item (click)="routeTo('#send-to')">
+      <mat-icon>send</mat-icon>
+      <span>Conversar com</span>
+    </button>
+    <button mat-menu-item (click)="routeTo('#share')">
+      <mat-icon>share</mat-icon>
+      <span>Compartilhar</span>
+    </button>
+  </mat-menu>
+
+  <span class="fill-remaining-space">Utilitários WhatsApp</span>
 </mat-toolbar>

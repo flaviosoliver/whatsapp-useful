@@ -8,5 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class ToolbarComponent implements OnInit {
   constructor() {}
 
+  routeTo(sectionId: string) {
+    let x = document.querySelector(sectionId);
+    if (x) {
+      x.scrollIntoView();
+    }
+    console.log(sectionId);
+  }
+
   ngOnInit() {}
 }
