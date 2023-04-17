@@ -1,0 +1,57 @@
+<div class="check-number-form-content">
+  <section class="check-number-form-section">
+    <form class="check-number-form" [formGroup]="phoneForm">
+      <div class="check-number-form-field-tel">
+        <mat-form-field appearance="outline">
+          <mat-label>Telefone</mat-label>
+          <ngx-mat-intl-tel-input
+            formControlName="phone"
+            [preferredCountries]="['br']"
+            [enablePlaceholder]="true"
+            [enableSearch]="true"
+            name="phone"
+            #phone
+          >
+          </ngx-mat-intl-tel-input>
+          <mat-hint>Exemplo: {{ phone.selectedCountry!.placeHolder }}</mat-hint>
+          <mat-error
+            *ngIf="phoneForm.controls['phone']?.errors?.['validatePhoneNumber']"
+            >Número com formato incorreto</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="check-number-form-btn-area">
+        <button
+          type="button"
+          mat-raised-button
+          aria-label="Pronto"
+          color="primary"
+          (click)="handlePhoneNumber()"
+        >
+          Enviar
+        </button>
+      </div>
+      <div class="check-number-form-field-message" *ngIf="sendSection">
+        <mat-checkbox
+          formControlName="withMessage"
+          (click)="handleActiveMessage()"
+        >
+          Com mensagem?
+        </mat-checkbox>
+        <mat-form-field
+          appearance="outline"
+          class="check-number-form-field-message-text"
+        >
+          <mat-label>{{ inputName }}</mat-label>
+          <textarea
+            #message
+            formControlName="message"
+            area-label="Mensagem"
+            placeholder="Mensagem"
+            matInput
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </section>
+</div>
