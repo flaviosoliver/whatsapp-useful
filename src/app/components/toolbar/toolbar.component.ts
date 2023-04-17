@@ -9,11 +9,10 @@ export class ToolbarComponent implements OnInit {
   constructor() {}
 
   routeTo(sectionId: string) {
-    let x = document.querySelector(sectionId);
-    if (x) {
-      x.scrollIntoView();
+    let el = document.querySelector(sectionId);
+    if (el) {
+      el.scrollIntoView();
     }
-    console.log(sectionId);
   }
 
   ngOnInit() {}

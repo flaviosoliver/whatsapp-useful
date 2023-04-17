@@ -8,15 +8,25 @@
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="routeTo('#check-number')">
-      <mat-icon>person_search</mat-icon>
+      <mat-icon color="accent" class="material-symbols-outlined"
+        >person_search</mat-icon
+      >
       <span>Verificar Número</span>
     </button>
     <button mat-menu-item (click)="routeTo('#send-to')">
-      <mat-icon>send</mat-icon>
+      <mat-icon color="accent" class="material-symbols-outlined">send</mat-icon>
       <span>Conversar com</span>
     </button>
+    <button mat-menu-item (click)="routeTo('#to-forward')">
+      <mat-icon color="accent" class="material-symbols-outlined"
+        >forward</mat-icon
+      >
+      <span>Encaminhar mensagem para</span>
+    </button>
     <button mat-menu-item (click)="routeTo('#share')">
-      <mat-icon>share</mat-icon>
+      <mat-icon color="accent" class="material-symbols-outlined"
+        >share</mat-icon
+      >
       <span>Compartilhar</span>
     </button>
   </mat-menu>
