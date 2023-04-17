@@ -1,12 +1,6 @@
 @use "@angular/material" as mat;
-// @import "@angular/cdk/overlay-prebuilt.css";
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
 
 @include mat.core();
-
-* {
-  font-family: Roboto, "Helvetica Neue", "Helvetica";
-}
 
 // COLORS BASE
 $green-c: #25d366; // logo - info
@@ -250,6 +244,14 @@ $error-palette: (
   ),
 );
 
+$custom-primary: mat.define-palette($green-a-palette);
+$custom-accent: mat.define-palette($green-b-palette);
+$custom-warn: mat.define-palette($error-palette);
+$custom-success: mat.define-palette($green-d-palette);
+$custom-info: mat.define-palette($green-c-palette);
+$custom-light: mat.define-palette($green-e-palette);
+$custom-dark: mat.define-palette($dark-palette);
+
 // SET COLORS
 // $primary: mat.define-color($custom-primary);
 // $accent: mat.define-color($custom-accent);
@@ -258,15 +260,6 @@ $error-palette: (
 // $info: mat.define-color($custom-info);
 // $light: mat.define-color($custom-light);
 // $dark: mat.define-color($custom-dark);
-
-// SET PALETTES CUSTOMS
-$custom-primary: mat.define-palette($green-a-palette);
-$custom-accent: mat.define-palette($green-b-palette);
-$custom-info: mat.define-palette($green-c-palette);
-$custom-success: mat.define-palette($green-d-palette);
-$custom-light: mat.define-palette($green-e-palette);
-$custom-warn: mat.define-palette($error-palette);
-$custom-dark: mat.define-palette($dark-palette);
 
 // THEME CONFIG
 $custom-theme: mat.define-light-theme(
@@ -290,50 +283,3 @@ $custom-theme: mat.define-light-theme(
 }
 
 // @include mat.core-theme($custom-theme);
-
-// CUSTOM CLASS
-:root {
-  .mat-primary .mat-button-focus-overlay {
-    background-color: mat.get-color-from-palette($custom-primary, 500);
-    color: mat.get-color-from-palette($custom-primary, "500-contrast");
-  }
-
-  .mat-accent .mat-button-focus-overlay {
-    background-color: mat.get-color-from-palette($custom-accent, 500);
-    color: mat.get-color-from-palette($custom-accent, "500-contrast");
-  }
-
-  .mat-warn .mat-button-focus-overlay {
-    background-color: mat.get-color-from-palette($custom-warn, 500);
-    color: mat.get-color-from-palette($custom-warn, "500-contrast");
-  }
-
-  .mat-mdc-raised-button:not(:disabled) {
-    background-color: mat.get-color-from-palette($custom-primary);
-  }
-
-  .mat-mdc-raised-button.mat-primary {
-    --mdc-protected-button-container-color: mat.get-color-config(
-      $custom-primary,
-      500
-    );
-    --mdc-protected-button-label-text-color: mat.get-color-from-palette(
-      $custom-primary,
-      500
-    );
-  }
-
-  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-    color: mat.get-color-from-palette($custom-primary, 500);
-  }
-
-  .mat-success {
-    background-color: mat.get-color-from-palette($custom-success, 500);
-    color: mat.get-color-from-palette($custom-success, "500-contrast");
-  }
-
-  .mat-info {
-    background-color: mat.get-color-from-palette($custom-info, 500);
-    color: mat.get-color-from-palette($custom-info, "500-contrast");
-  }
-}
