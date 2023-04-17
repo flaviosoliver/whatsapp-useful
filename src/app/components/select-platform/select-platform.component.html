@@ -1,0 +1,15 @@
+<div class="select-platform">
+  <label id="select-platform-label">Abrir com:</label>
+  <mat-radio-group
+    [(ngModel)]="selectedValue"
+    (change)="selectionChanged.emit(selectedValue)"
+  >
+    <mat-radio-button
+      *ngFor="let option of options"
+      [value]="option.value"
+      [disabled]="option.disabled"
+    >
+      {{ option.label }}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
