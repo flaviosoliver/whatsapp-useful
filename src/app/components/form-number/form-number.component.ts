@@ -22,7 +22,6 @@ export class FormNumberComponent implements OnChanges {
   @Input() message: string = '';
   @Input() file: string = '';
   @Input() platform: string = '';
-  @Input() inputName: string = '';
   @Input() sendSection: boolean = false;
   @Output() phoneNumber = new EventEmitter<string>();
 
@@ -33,7 +32,10 @@ export class FormNumberComponent implements OnChanges {
   phoneForm: FormGroup = this.fb.group({
     phone: [''],
     withMessage: [false],
-    message: [{ value: '', disabled: true }, [Validators.minLength(1)]],
+    message: [
+      { value: this.getTime(), disabled: true },
+      [Validators.minLength(1)],
+    ],
   });
 
   constructor(private fb: FormBuilder) {}
@@ -51,8 +53,15 @@ export class FormNumberComponent implements OnChanges {
     }
   }
 
+  getTime(): string {
+    return new Date().getHours() <= 11
+      ? 'Olá, bom dia!'
+      : new Date().getHours() <= 17
+      ? 'Olá, boa tarde!'
+      : 'Olá, boa noite!';
+  }
+
   handleActiveMessage() {
-    this.validationForm();
     if (this.phoneForm.controls['withMessage'].value === true) {
       this.phoneForm.get('message')?.enable();
       this.phoneForm.controls['withMessage'].dirty;
@@ -61,42 +70,17 @@ export class FormNumberComponent implements OnChanges {
     }
   }
 
-  validationForm(): boolean {
-    console.log('validação');
-    console.log(this.phoneForm);
-    // validar se tem msg
-    if (this.phoneForm.controls['withMessage'].value === true) {
-      // tem msg
-      if (
-        this.phoneForm.controls['phone'].dirty &&
-        this.phoneForm.controls['phone'].errors &&
-        this.phoneForm.controls['message'].value.length == 0
-      ) {
-        // fomulário inválido
-        this.btnDisabled = true;
-        console.log('tem msg, phone e msg inválidos');
-        console.log(this.phoneForm);
-        return false;
-      } else {
-        // formulário válido
-        return true;
-      }
-    } else if (
-      // não tem msg
-      this.phoneForm.controls['phone'].dirty &&
-      this.phoneForm.controls['phone'].errors
-    ) {
-      // phone inválido
-      this.btnDisabled = true;
-      console.log('não tem msg, phone inválido');
-      console.log(this.phoneForm);
-      return false;
+  isValidForm(): boolean {
+    const phoneValid = !this.phoneForm.controls.phone.errors;
+    if (this.phoneForm.controls.withMessage.value) {
+      if (this.phoneForm.controls.message.value == '')
+        this.phoneForm.controls.message.setErrors({ minLength: true });
+      const messageValid =
+        !this.phoneForm.controls.message.errors &&
+        this.phoneForm.controls.message.value !== '';
+      return phoneValid && messageValid;
     } else {
-      // formulário válido
-      this.btnDisabled = false;
-      console.log('form válido');
-      console.log(this.phoneForm);
-      return true;
+      return phoneValid;
     }
   }
 

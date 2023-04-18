@@ -27,6 +27,7 @@
           aria-label="Pronto"
           color="primary"
           (click)="handlePhoneNumber()"
+          [disabled]="!isValidForm()"
         >
           Enviar
         </button>
@@ -42,7 +43,7 @@
           appearance="outline"
           class="check-number-form-field-message-text"
         >
-          <mat-label>{{ inputName }}</mat-label>
+          <mat-label>Escreva mensagem aqui</mat-label>
           <textarea
             #message
             formControlName="message"
@@ -50,6 +51,13 @@
             placeholder="Mensagem"
             matInput
           ></textarea>
+          <mat-error
+            *ngIf="
+              phoneForm.controls.withMessage.value &&
+              phoneForm.controls['message']?.errors?.['minLength']
+            "
+            >Opção "Com mensagem" marcada. Deve conter uma mensagem</mat-error
+          >
         </mat-form-field>
       </div>
     </form>
