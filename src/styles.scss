@@ -440,6 +440,32 @@ body {
     color: $green-b;
   }
 
+  h4 {
+    color: $green-c;
+  }
+
+  .info-container {
+    background-color: $green-e;
+    height: 70px;
+    vertical-align: middle;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .footer-container {
+    vertical-align: middle;
+    text-align: center;
+    color: $green-d;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: 600;
+    font-size: smaller;
+  }
+
   .custom-btn {
     color: #ffffff;
     margin: 0 10px;

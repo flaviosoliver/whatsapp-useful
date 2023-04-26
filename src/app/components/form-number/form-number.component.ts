@@ -35,7 +35,7 @@ export class FormNumberComponent implements OnChanges {
   URLBrowser: string = 'https://web.whatsapp.com/send/';
   URLApp: string = 'https://api.whatsapp.com/send/';
   URLChart: string =
-    'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=';
+    'https://chart.googleapis.com/chart?chs=230x230&cht=qr&chl=';
   phoneForm: FormGroup = this.fb.group({
     phone: [''],
     withMessage: [true],
