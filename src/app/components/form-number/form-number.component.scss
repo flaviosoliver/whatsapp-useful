@@ -3,11 +3,11 @@
     display: block;
 
     .check-number-form {
-      display: flex;
+      display: inline-flex;
       // display: grid;
       align-items: baseline;
       flex-wrap: wrap;
-      width: 350px;
+      // width: 350px;
       // grid-template-columns: repeat(2, 0fr);
       // grid-template-rows: 73px 30px;
 

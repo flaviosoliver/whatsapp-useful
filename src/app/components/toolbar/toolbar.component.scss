@@ -6,3 +6,11 @@
   background-color: #111b21;
   color: #00a884;
 }
+
+.toolbar-container {
+  position: fixed;
+  z-index: 2;
+  width: -webkit-fill-available;
+  top: 0px;
+  left: 0px;
+}

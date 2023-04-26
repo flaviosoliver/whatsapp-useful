@@ -1,7 +1,7 @@
 <div class="check-number-form-content">
   <section class="check-number-form-section">
     <form class="check-number-form" [formGroup]="phoneForm">
-      <div class="check-number-form-field-tel">
+      <div class="check-number-form-field-tel" *ngIf="phoneSection">
         <mat-form-field appearance="outline">
           <mat-label>Telefone</mat-label>
           <ngx-mat-intl-tel-input
@@ -20,22 +20,11 @@
           >
         </mat-form-field>
       </div>
-      <div class="check-number-form-btn-area">
-        <button
-          type="button"
-          mat-raised-button
-          aria-label="Pronto"
-          color="primary"
-          (click)="handlePhoneNumber()"
-          [disabled]="!isValidForm()"
-        >
-          Enviar
-        </button>
-      </div>
-      <div class="check-number-form-field-message" *ngIf="sendSection">
+      <div class="check-number-form-field-message" *ngIf="msgSection">
         <mat-checkbox
+          *ngIf="checkboxSection"
           formControlName="withMessage"
-          (click)="handleActiveMessage()"
+          (click)="checkboxSection === true ? handleActiveMessage() : null"
         >
           Com mensagem?
         </mat-checkbox>
@@ -56,9 +45,33 @@
               phoneForm.controls.withMessage.value &&
               phoneForm.controls['message']?.errors?.['minLength']
             "
-            >Opção "Com mensagem" marcada. Deve conter uma mensagem</mat-error
+            >{{ msgErrorTextarea }}</mat-error
           >
         </mat-form-field>
+      </div>
+      <div class="check-number-form-btn-area">
+        <button
+          class="custom-btn"
+          type="button"
+          mat-raised-button
+          aria-label="Pronto"
+          color="accent"
+          (click)="handleSubmit()"
+          [disabled]="!isValidForm()"
+        >
+          Enviar
+        </button>
+        <button
+          class="custom-btn"
+          type="button"
+          mat-raised-button
+          aria-label="Gerar QR Code"
+          color="accent"
+          (click)="openDialog()"
+          [disabled]="!isValidForm()"
+        >
+          Gerar QR Code
+        </button>
       </div>
     </form>
   </section>

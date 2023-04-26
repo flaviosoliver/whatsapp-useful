@@ -8,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class ToolbarComponent implements OnInit {
   constructor() {}
 
+  ngOnInit() {}
+
   routeTo(sectionId: string) {
-    let el = document.querySelector(sectionId);
-    if (el) {
-      el.scrollIntoView();
+    const section = document.querySelector(sectionId);
+    if (section) {
+      console.log(section.scrollIntoView());
+      setTimeout(
+        () => section.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+        0
+      );
     }
   }
-
-  ngOnInit() {}
 }

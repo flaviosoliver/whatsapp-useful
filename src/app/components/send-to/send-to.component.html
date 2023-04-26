@@ -7,7 +7,6 @@
     Aqui você poderá iniciar uma conversa com o número desejado, podendo já
     entrar na conversa com uma mensagem pronta para ser enviada.
   </p>
-  <p>Insira o número do telefone</p>
   <div class="send-to-content">
     <app-select-platform
       (selectionChanged)="onSelectionChanged($event)"
@@ -15,7 +14,10 @@
     <app-form-number
       (phoneNumber)="phoneNumberChanged($event)"
       [platform]="selectedValue"
-      [sendSection]="true"
+      [msgSection]="true"
+      [phoneSection]="true"
+      [checkboxSection]="true"
+      [msgErrorTextarea]="msgErrorTextarea"
     ></app-form-number>
   </div>
 </div>

@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class SendToComponent implements OnInit {
   phoneNumber: string = '';
   selectedValue: string = '';
+  msgErrorTextarea: string =
+    'Opção "Com mensagem" marcada. Deve conter uma mensagem';
 
   constructor() {}
 

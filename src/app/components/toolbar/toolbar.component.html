@@ -1,35 +1,33 @@
-<mat-toolbar>
-  <button
-    mat-icon-button
-    [matMenuTriggerFor]="menu"
-    aria-label="Example icon-button with a menu"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="routeTo('#check-number')">
-      <mat-icon color="accent" class="material-symbols-outlined"
-        >person_search</mat-icon
-      >
-      <span>Verificar Número</span>
+<div class="toolbar-container">
+  <mat-toolbar>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>menu</mat-icon>
     </button>
-    <button mat-menu-item (click)="routeTo('#send-to')">
-      <mat-icon color="accent" class="material-symbols-outlined">send</mat-icon>
-      <span>Conversar com</span>
-    </button>
-    <button mat-menu-item (click)="routeTo('#to-forward')">
-      <mat-icon color="accent" class="material-symbols-outlined"
-        >forward</mat-icon
-      >
-      <span>Encaminhar mensagem para</span>
-    </button>
-    <button mat-menu-item (click)="routeTo('#share')">
-      <mat-icon color="accent" class="material-symbols-outlined"
-        >share</mat-icon
-      >
-      <span>Compartilhar</span>
-    </button>
-  </mat-menu>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="routeTo('#check-number')">
+        <mat-icon color="accent" class="material-symbols-outlined"
+          >person_search</mat-icon
+        >
+        <span>Verificar Número</span>
+      </button>
+      <button mat-menu-item (click)="routeTo('#send-to')">
+        <mat-icon color="accent" class="material-symbols-outlined"
+          >send</mat-icon
+        >
+        <span>Conversar com</span>
+      </button>
+      <button mat-menu-item (click)="routeTo('#to-forward')">
+        <mat-icon color="accent" class="material-symbols-outlined"
+          >forward</mat-icon
+        >
+        <span>Encaminhar mensagem para</span>
+      </button>
+    </mat-menu>
 
-  <span class="fill-remaining-space">Utilitários WhatsApp</span>
-</mat-toolbar>
+    <span class="fill-remaining-space">Utilitários WhatsApp</span>
+  </mat-toolbar>
+</div>

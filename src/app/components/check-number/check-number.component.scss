@@ -1,5 +1,6 @@
 .check-number-container {
-  p, label {
-    font-family: Lato;
-  }
+  display: flex;
+  max-width: 320px;
+  flex-direction: column;
+  margin-top: 70px;
 }

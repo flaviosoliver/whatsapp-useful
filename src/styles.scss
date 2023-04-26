@@ -4,10 +4,6 @@
 
 @include mat.core();
 
-* {
-  font-family: Roboto, "Helvetica Neue", "Helvetica";
-}
-
 // COLORS BASE
 $green-c: #25d366; // logo - info
 $green-b: #128c7e; //icons - accent
@@ -327,6 +323,39 @@ $custom-theme: mat.define-light-theme(
     color: mat.get-color-from-palette($custom-primary, 500);
   }
 
+  .mat-mdc-radio-button.mat-accent {
+    --mdc-radio-disabled-selected-icon-color: #000;
+    --mdc-radio-disabled-unselected-icon-color: #000;
+    --mdc-radio-unselected-focus-icon-color: #212121;
+    --mdc-radio-unselected-hover-icon-color: #212121;
+    --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-selected-focus-icon-color: #25d366;
+    --mdc-radio-selected-hover-icon-color: #25d366;
+    --mdc-radio-selected-icon-color: #25d366;
+    --mdc-radio-selected-pressed-icon-color: #25d366;
+    --mat-mdc-radio-ripple-color: #000;
+    --mat-mdc-radio-checked-ripple-color: #25d366;
+  }
+
+  .mat-mdc-checkbox.mat-accent {
+    --mdc-checkbox-selected-checkmark-color: #fff;
+    --mdc-checkbox-selected-focus-icon-color: #25d366;
+    --mdc-checkbox-selected-hover-icon-color: #25d366;
+    --mdc-checkbox-selected-icon-color: #25d366;
+    --mdc-checkbox-selected-pressed-icon-color: #25d366;
+    --mdc-checkbox-unselected-focus-icon-color: #212121;
+    --mdc-checkbox-unselected-hover-icon-color: #212121;
+    --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
+    --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.38);
+    --mdc-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-checkbox-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+  }
+
+  .ng-valid.mat-primary.mat-focused {
+    border-color: $green-b;
+  }
+
   .mat-success {
     background-color: mat.get-color-from-palette($custom-success, 500);
     color: mat.get-color-from-palette($custom-success, "500-contrast");
@@ -335,5 +364,84 @@ $custom-theme: mat.define-light-theme(
   .mat-info {
     background-color: mat.get-color-from-palette($custom-info, 500);
     color: mat.get-color-from-palette($custom-info, "500-contrast");
+  }
+
+  .mdc-text-field--outlined:not(
+      .mdc-text-field--disabled
+    ).mdc-text-field--focused
+    .mdc-notched-outline__leading,
+  .mdc-text-field--outlined:not(
+      .mdc-text-field--disabled
+    ).mdc-text-field--focused
+    .mdc-notched-outline__notch,
+  .mdc-text-field--outlined:not(
+      .mdc-text-field--disabled
+    ).mdc-text-field--focused
+    .mdc-notched-outline__trailing {
+    border-color: $green-d;
+  }
+
+  .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: $green-d;
+  }
+
+  .mdc-text-field--invalid:not(.mdc-text-field--disabled)
+    .mdc-notched-outline__leading,
+  .mdc-text-field--invalid:not(.mdc-text-field--disabled)
+    .mdc-notched-outline__notch,
+  .mdc-text-field--invalid:not(.mdc-text-field--disabled)
+    .mdc-notched-outline__trailing {
+    border-color: $error;
+  }
+
+  .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: $error;
+  }
+
+  .mat-mdc-form-field-error {
+    color: $error;
+  }
+
+  .mat-menu-item:hover {
+    background-color: $green-c;
+  }
+
+  .mat-icon.mat-accent {
+    color: $green-b;
+  }
+
+  .mat-icon {
+    color: $green-b;
+  }
+
+  .mat-divider {
+    background-color: $green-c;
+  }
+
+  .mat-mdc-form-field-textarea-control {
+    padding-left: 15px;
+  }
+}
+
+* {
+  font-family: Roboto, "Helvetica Neue", "Helvetica";
+}
+
+body {
+  display: table-caption;
+  width: 100vw;
+
+  p,
+  label {
+    font-family: Lato;
+  }
+
+  h2 span {
+    color: $green-b;
+  }
+
+  .custom-btn {
+    color: #ffffff;
+    margin: 0 10px;
   }
 }

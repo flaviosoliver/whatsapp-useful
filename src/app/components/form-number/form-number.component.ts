@@ -12,6 +12,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogQrCodeComponent } from '../dialog-qrcode/dialog-qrcode.component';
 
 @Component({
   selector: 'app-form-number',
@@ -20,30 +22,32 @@ import {
 })
 export class FormNumberComponent implements OnChanges {
   @Input() message: string = '';
-  @Input() file: string = '';
   @Input() platform: string = '';
-  @Input() sendSection: boolean = false;
+  @Input() msgErrorTextarea: string = '';
+  @Input() checkboxSection!: boolean;
+  @Input() msgSection: boolean = false;
+  @Input() phoneSection: boolean = false;
   @Output() phoneNumber = new EventEmitter<string>();
+  @Output() link = new EventEmitter<string>();
 
-  btnDisabled: boolean = true;
   URL: string = '';
-  URLBrowser: string = 'https://web.whatsapp.com/send?';
-  URLApp: string = 'https://api.whatsapp.com/send?';
+  URLQrCode: string = '';
+  URLBrowser: string = 'https://web.whatsapp.com/send/';
+  URLApp: string = 'https://api.whatsapp.com/send/';
+  URLChart: string =
+    'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=';
   phoneForm: FormGroup = this.fb.group({
     phone: [''],
-    withMessage: [false],
+    withMessage: [true],
     message: [
-      { value: this.getTime(), disabled: true },
+      { value: this.getTime(), disabled: false },
       [Validators.minLength(1)],
     ],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private dialogService: MatDialog) {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(this.phoneForm);
-    console.log(this.btnDisabled);
-  }
+  ngOnChanges(changes: SimpleChanges) {}
 
   getPlatform(): string {
     if (this.platform === 'web') {
@@ -62,41 +66,76 @@ export class FormNumberComponent implements OnChanges {
   }
 
   handleActiveMessage() {
-    if (this.phoneForm.controls['withMessage'].value === true) {
+    if (this.phoneForm.controls.withMessage.value === true) {
       this.phoneForm.get('message')?.enable();
       this.phoneForm.controls['withMessage'].dirty;
     } else {
+      this.phoneForm.controls.message.setValue('');
       this.phoneForm.get('message')?.disable();
     }
   }
 
   isValidForm(): boolean {
-    const phoneValid = !this.phoneForm.controls.phone.errors;
-    if (this.phoneForm.controls.withMessage.value) {
-      if (this.phoneForm.controls.message.value == '')
-        this.phoneForm.controls.message.setErrors({ minLength: true });
-      const messageValid =
-        !this.phoneForm.controls.message.errors &&
-        this.phoneForm.controls.message.value !== '';
-      return phoneValid && messageValid;
-    } else {
-      return phoneValid;
+    const phone = this.phoneForm.controls.phone;
+    const message = this.phoneForm.controls.message;
+
+    if (this.phoneSection && this.msgSection) {
+      return !phone.errors && !message.errors;
     }
+
+    if (this.msgSection) {
+      const withMessage = this.phoneForm.controls.withMessage.value;
+      if (withMessage) {
+        if (message.value.trim() === '') {
+          message.setErrors({ minlength: { requiredLength: 1 } });
+          return false;
+        }
+        return !message.errors;
+      }
+    } else if (this.phoneSection) {
+      return !phone.errors;
+    }
+
+    return false;
   }
 
-  handlePhoneNumber() {
-    let tel = this.phoneForm.controls['phone'].value.slice(1);
+  generateLink() {
+    let tel = this.phoneForm.controls.phone.value.slice(1);
+    this.message = this.phoneForm.controls.message.value;
     this.phoneNumber.emit(tel);
-    if (this.message.length === 0 && this.file.length === 0) {
-      console.log(this.getPlatform());
-      window.open(`${this.getPlatform()}phone=${tel}`, '_blank');
+
+    switch (true) {
+      case !this.msgSection:
+      case this.message == '':
+        this.URL = `${this.getPlatform()}?phone=${tel}`;
+        this.URLQrCode = `${this.URLChart}${this.URL}`;
+        break;
+      case this.message.length > 0 && tel.length > 0:
+        this.URL = `${this.getPlatform()}?phone=${tel}&text=${this.message}`;
+        this.URLQrCode = `${this.URLChart}${this.URL}`;
+        break;
+      case this.message.length > 0:
+        this.URL = `${this.getPlatform()}?text=${this.message}`;
+        this.link.emit(this.URL);
+        break;
+      default:
+        break;
     }
-    if (this.message) {
-      console.log(this.getPlatform());
-      window.open(`${this.getPlatform()}text=${this.message}`, '_blank');
-    }
-    if (this.file) {
-      console.log('mandar arquivo');
-    }
+    this.link.emit(this.URL);
+  }
+
+  handleSubmit() {
+    this.generateLink();
+    window.open(this.URL, '_blank');
+  }
+
+  openDialog() {
+    this.generateLink();
+    this.dialogService
+      .open(DialogQrCodeComponent, {
+        data: { qrCode: this.URLQrCode },
+        disableClose: false,
+      })
+      .afterClosed();
   }
 }

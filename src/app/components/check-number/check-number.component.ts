@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CheckNumberComponent implements OnInit {
   phoneNumber: string = '';
   selectedValue: string = '';
+  link: string = '';
 
   constructor() {}
 
@@ -19,5 +20,9 @@ export class CheckNumberComponent implements OnInit {
 
   phoneNumberChanged(value: string) {
     this.phoneNumber = value;
+  }
+
+  linkChanged(value: string) {
+    this.link = value;
   }
 }

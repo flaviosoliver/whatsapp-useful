@@ -12,6 +12,8 @@ import { CheckNumberComponent } from './components/check-number/check-number.com
 import { SelectPlatformComponent } from './components/select-platform/select-platform.component';
 import { FormNumberComponent } from './components/form-number/form-number.component';
 import { SendToComponent } from './components/send-to/send-to.component';
+import { ToForwardComponent } from './components/to-forward/to-forward.component';
+import { DialogQrCodeComponent } from './components/dialog-qrcode/dialog-qrcode.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { SendToComponent } from './components/send-to/send-to.component';
     SelectPlatformComponent,
     FormNumberComponent,
     SendToComponent,
+    ToForwardComponent,
+    DialogQrCodeComponent,
   ],
   imports: [
     BrowserModule,
