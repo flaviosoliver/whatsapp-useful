@@ -1,0 +1,14 @@
+.about-container {
+  display: flex;
+  max-width: 320px;
+  flex-direction: column;
+  margin-top: 70px;
+
+  .about-sub-tilte {
+    margin-bottom: 0;
+  }
+
+  strong {
+    color: #111b21;
+  }
+}

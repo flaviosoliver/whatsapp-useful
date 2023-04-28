@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,7 +9,6 @@ import { NgxMatIntlTelInputComponent } from 'ngx-mat-intl-tel-input';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { CheckNumberComponent } from './components/check-number/check-number.component';
 import { SelectPlatformComponent } from './components/select-platform/select-platform.component';
 import { FormNumberComponent } from './components/form-number/form-number.component';
 import { SendToComponent } from './components/send-to/send-to.component';
@@ -19,7 +19,6 @@ import { DialogQrCodeComponent } from './components/dialog-qrcode/dialog-qrcode.
   declarations: [
     AppComponent,
     ToolbarComponent,
-    CheckNumberComponent,
     SelectPlatformComponent,
     FormNumberComponent,
     SendToComponent,
@@ -27,6 +26,7 @@ import { DialogQrCodeComponent } from './components/dialog-qrcode/dialog-qrcode.
     DialogQrCodeComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

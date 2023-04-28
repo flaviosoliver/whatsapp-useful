@@ -20,4 +20,8 @@ export class ToolbarComponent implements OnInit {
       );
     }
   }
+
+  externalRoute() {
+    window.open('https://github.com/flaviosoliver/whatsapp-useful/');
+  }
 }

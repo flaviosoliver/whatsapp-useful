@@ -8,11 +8,11 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="routeTo('#check-number')">
+      <button mat-menu-item (click)="routeTo('#about')">
         <mat-icon color="accent" class="material-symbols-outlined"
-          >person_search</mat-icon
+          >rocket_launch</mat-icon
         >
-        <span>Verificar Número</span>
+        <span>Sobre esse Projeto</span>
       </button>
       <button mat-menu-item (click)="routeTo('#send-to')">
         <mat-icon color="accent" class="material-symbols-outlined"
@@ -24,7 +24,13 @@
         <mat-icon color="accent" class="material-symbols-outlined"
           >forward</mat-icon
         >
-        <span>Encaminhar mensagem para</span>
+        <span>Encaminhar mensagem</span>
+      </button>
+      <button mat-menu-item (click)="externalRoute()">
+        <mat-icon color="accent" class="material-symbols-outlined"
+          >code</mat-icon
+        >
+        <span>Veja Repositório no GitHub</span>
       </button>
     </mat-menu>
 
