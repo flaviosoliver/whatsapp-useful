@@ -1,5 +1,14 @@
 .send-to-container {
   display: flex;
-  max-width: 320px;
+  // max-width: 320px;
   flex-direction: column;
+
+  .check-number-form-content
+    .check-number-form-section
+    .check-number-form
+    .check-number-form-field-message {
+    width: 260px;
+    top: -19px !important;
+    position: relative !important;
+  }
 }

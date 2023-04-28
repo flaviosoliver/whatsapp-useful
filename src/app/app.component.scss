@@ -1,6 +1,10 @@
+@use "@angular/material" as mat;
+@import "../styles.scss";
+@include mat.core();
+
 .about-container {
   display: flex;
-  max-width: 320px;
+  // max-width: 320px;
   flex-direction: column;
   margin-top: 70px;
 
@@ -8,8 +12,16 @@
     margin-bottom: 0;
   }
 
+  li.about-description-topic {
+    color: mat.get-color-from-palette($custom-accent, 500);
+  }
+
+  .about-description-text {
+    color: #000;
+  }
+
   strong {
-    color: #111b21;
+    color: mat.get-color-from-palette($custom-dark, 500);
   }
 }
 

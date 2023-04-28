@@ -1,10 +1,8 @@
 <app-toolbar></app-toolbar>
 <div id="about" class="about-container">
-  <h2>
-    <mat-icon color="accent" class="material-symbols-outlined"
-      >rocket_launch</mat-icon
-    >
-    <span color="info">Sobre esse Projeto</span>
+  <h2 color="info">
+    <mat-icon class="material-symbols-outlined">rocket_launch</mat-icon>
+    <span>Sobre esse Projeto</span>
   </h2>
   <h4 class="about-sub-tilte">Motivação:</h4>
   <p class="about-description">
@@ -29,51 +27,74 @@
     <li>Angular Material</li>
     <li>Material Icons</li>
     <li>Customização do Material</li>
+    <li>API WhatsApp</li>
   </ul>
   <h4 class="about-sub-tilte">Infos:</h4>
   <ul class="about-description">
-    <li>
+    <li class="about-description-topic">
       Escolha de Plataforma:
       <ul>
-        <li>
+        <li class="about-description-text">
           <strong>WhatsApp Web:</strong> abrir o WhatsApp diretamente no
           navegador web.
         </li>
-        <li>
+        <li class="about-description-text">
           <strong>App WhatsApp:</strong> irá executar a aplicação do WhatsApp
           existente em seu sistema operacional, caso não seja localizado, será
-          executado no navegador
+          executado no navegador.
         </li>
       </ul>
     </li>
-    <li>
+    <li class="about-description-topic">
       Telefone
       <ul>
-        <li></li>
+        <li class="about-description-text">
+          Informe o número de telefone ao qual deseja entrar em contato pelo
+          WhatsApp. Insira um número de telefone em formato válido.
+        </li>
       </ul>
     </li>
-    <li>
+    <li class="about-description-topic">
       Com mensagem
       <ul>
-        <li></li>
+        <li class="about-description-text">
+          Nessa caixa de seleção, você controla se deseja que seu primeiro
+          contato com esse número aconteça já com uma mensagem pré-carregada.
+        </li>
       </ul>
     </li>
-    <li>
+    <li class="about-description-topic">
       Caixa de mensagem
       <ul>
-        <li></li>
+        <li class="about-description-text">
+          Observando o controle de seleção acima, através dessa caixa de texto,
+          você poderá adicionar a mensagem inicial dessa interação via WhatsApp.
+          Quando abrir a tela do aplicativo a mensagem já estará lá pronta para
+          ser enviada.
+        </li>
       </ul>
     </li>
-    <li>
+    <li class="about-description-topic">
       Botão Enviar
       <ul>
-        <li></li>
+        <li class="about-description-text">
+          Como o nome do botão já propõe, através dele irá abrir uma nova janela
+          com a API oficial do WhatsApp, caso não esteja logado no WhatsApp, a
+          API retornará a tela de login oficial exibindo o QR Code para tal
+          conexão.
+        </li>
       </ul>
     </li>
-    <li>
+    <li class="about-description-topic">
       Botão Gerar QR Code
       <ul>
-        <li></li>
+        <li class="about-description-text">
+          Com esse botão é possível gerar um QR Code com os dados passados nos
+          itens anteriores (Telefone e/ou Mensagem). Uma aplicabilidade real
+          nisso é poder submeter essa conversa para um outro aparelho,
+          desfazendo a necessidade de abrir conexão nesse que está em uso o
+          site.
+        </li>
       </ul>
     </li>
   </ul>
