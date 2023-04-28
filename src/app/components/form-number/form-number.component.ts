@@ -6,12 +6,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogQrCodeComponent } from '../dialog-qrcode/dialog-qrcode.component';
 
@@ -99,9 +94,18 @@ export class FormNumberComponent implements OnChanges {
     return false;
   }
 
+  paragraphEncode(text: string): string {
+    const line = text.split('\n');
+    const paragraph = line.map((line) => `${line.trim()}`);
+    const result = paragraph.join('%0A');
+
+    return result;
+  }
+
   generateLink() {
     let tel = this.phoneForm.controls.phone.value.slice(1);
     this.message = this.phoneForm.controls.message.value;
+    this.message = this.paragraphEncode(this.message);
     this.phoneNumber.emit(tel);
 
     switch (true) {
