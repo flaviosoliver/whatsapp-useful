@@ -430,11 +430,8 @@ $custom-theme: mat.define-light-theme(
   }
 }
 
-* {
-  font-family: Roboto, "Helvetica Neue", "Helvetica";
-}
-
 body {
+  font-family: Roboto, "Helvetica Neue", "Helvetica";
   display: table-caption;
   width: 97vw;
   margin-left: 10px;
@@ -474,6 +471,7 @@ body {
     justify-content: center;
     font-weight: 600;
     font-size: smaller;
+    background-color: mat.get-color-from-palette($custom-dark, 500);
   }
 
   .custom-btn {
