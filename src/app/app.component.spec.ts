@@ -1,35 +1,56 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [MatMenuModule],
+      declarations: [AppComponent, ToolbarComponent],
     }).compileComponents();
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'whatsapp-useful'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('whatsapp-useful');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('whatsapp-useful app is running!');
+  });
+
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should render the toolbar component', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('app-toolbar')).toBeTruthy();
+  });
+
+  it('should render the about container', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.about-container')).toBeTruthy();
+  });
+
+  it('should render the send to component', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('app-send-to')).toBeTruthy();
+  });
+
+  it('should render the to forward component', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('app-to-forward')).toBeTruthy();
+  });
+
+  it('should render the info container', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.info-container')).toBeTruthy();
+  });
+
+  it('should render the footer container', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.footer-container')).toBeTruthy();
   });
 });
