@@ -14,6 +14,7 @@ import { FormNumberComponent } from './components/form-number/form-number.compon
 import { SendToComponent } from './components/send-to/send-to.component';
 import { ToForwardComponent } from './components/to-forward/to-forward.component';
 import { DialogQrCodeComponent } from './components/dialog-qrcode/dialog-qrcode.component';
+import { AccordionComponent } from './components/accordion/accordion.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DialogQrCodeComponent } from './components/dialog-qrcode/dialog-qrcode.
     SendToComponent,
     ToForwardComponent,
     DialogQrCodeComponent,
+    AccordionComponent,
   ],
   imports: [
     CommonModule,

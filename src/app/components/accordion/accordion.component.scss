@@ -1,0 +1,15 @@
+@use "@angular/material" as mat;
+@import "../../../styles.scss";
+@include mat.core();
+
+li.about-description-topic {
+  color: mat.get-color-from-palette($custom-accent, 500);
+}
+
+.about-description-text {
+  color: #000;
+}
+
+strong {
+  color: mat.get-color-from-palette($custom-dark, 500);
+}
