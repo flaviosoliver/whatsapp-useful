@@ -421,6 +421,23 @@ $custom-theme: mat.define-light-theme(
   .mat-mdc-form-field-textarea-control {
     padding-left: 15px;
   }
+
+  .mat-expansion-panel-header {
+    background-color: mat.get-color-from-palette($custom-light, 500);
+
+    .mat-expansion-panel-header-title {
+      font-size: 16px;
+    }
+  }
+
+  .mat-expansion-panel-content {
+    background-color: mat.get-color-from-palette($custom-light, 300);
+  }
+
+  .mat-expansion-panel-header-description,
+  .mat-expansion-indicator::after {
+    color: mat.get-color-from-palette($custom-accent, 500);
+  }
 }
 
 // MEDIA QUERY
@@ -432,10 +449,9 @@ $custom-theme: mat.define-light-theme(
 
 body {
   font-family: Roboto, "Helvetica Neue", "Helvetica";
-  display: table-caption;
-  width: 97vw;
-  margin-left: 10px;
-  margin-right: 10px;
+  display: flex;
+  width: 95vw;
+  margin: 0 auto;
 
   p,
   label {
