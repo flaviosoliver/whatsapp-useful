@@ -9,6 +9,8 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogQrCodeComponent } from '../dialog-qrcode/dialog-qrcode.component';
+import { HttpClient } from '@angular/common/http';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-form-number',
@@ -40,7 +42,11 @@ export class FormNumberComponent implements OnChanges {
     ],
   });
 
-  constructor(private fb: FormBuilder, private dialogService: MatDialog) {}
+  constructor(
+    private fb: FormBuilder,
+    private dialogService: MatDialog,
+    private http: HttpClient
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {}
 
@@ -133,13 +139,38 @@ export class FormNumberComponent implements OnChanges {
     window.open(this.URL, '_blank');
   }
 
-  openDialog() {
+  async openDialog() {
     this.generateLink();
-    this.dialogService
-      .open(DialogQrCodeComponent, {
-        data: { qrCode: this.URLQrCode },
-        disableClose: false,
-      })
-      .afterClosed();
+
+    try {
+      const apiKey = 'SUA_API_KEY_AQUI'; // Configure a sua chave de API do QR.io aqui
+      const payload = {
+        apikey: apiKey,
+        data: this.URL,
+        transparent: 'off',
+        frontcolor: '#006b53',
+        pattern: 'default',
+        marker: 'default',
+        marker_in: 'default',
+        optionlogo: 'none',
+      };
+
+      const response: any = await lastValueFrom(
+        this.http.post('https://api.qr.io/v1/create', payload)
+      );
+
+      const svgData = response?.svg || '';
+
+      this.dialogService
+        .open(DialogQrCodeComponent, {
+          data: { qrCode: svgData, isSvg: true },
+          disableClose: false,
+        })
+        .afterClosed();
+    } catch (error) {
+      console.error('Erro ao gerar QR Code via qr.io:', error);
+      // Fallback simples
+      alert('Falha ao gerar QR Code. Verifique se a API Key do qr.io está correta no código.');
+    }
   }
 }

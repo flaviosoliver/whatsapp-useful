@@ -10,5 +10,6 @@
       <mat-icon class="material-symbols-outlined">close</mat-icon>
     </button>
   </div>
-  <img [src]="data.qrCode" />
+  <div *ngIf="data.isSvg" [innerHTML]="safeQrCode"></div>
+  <img *ngIf="!data.isSvg" [src]="safeQrCode" />
 </mat-dialog-content>

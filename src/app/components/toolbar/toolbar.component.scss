@@ -4,10 +4,61 @@
 
 .mat-toolbar {
   background-color: transparent;
-  color: var(--accent-color);
-  max-width: 900px;
+  color: #131d23;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #006b53;
+  font-size: 22px;
+  
+  .brand-icon {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.toolbar-links {
+  display: flex;
+  gap: 24px;
+  
+  @media (max-width: 768px) {
+    display: none; // hide on mobile, user can adapt menu
+  }
+
+  .nav-link {
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #3d4a44;
+    text-decoration: none;
+    transition: color 0.3s;
+    
+    &:hover {
+      color: #006b53;
+    }
+  }
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 24px;
+  
+  mat-icon {
+    color: #131d23;
+  }
 }
 
 .toolbar-container {
@@ -16,10 +67,10 @@
   width: 100%;
   top: 0px;
   left: 0px;
-  background: rgba(11, 20, 26, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
 }

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'whatsapp-useful';
+
+  routeTo(id: string) {
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

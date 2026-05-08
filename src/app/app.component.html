@@ -1,55 +1,90 @@
 <app-toolbar></app-toolbar>
 <main class="main-content-wrapper">
-  <div id="about" class="about-container modern-card">
-    <h2 color="info">
-      <mat-icon class="material-symbols-outlined">rocket_launch</mat-icon>
-      <span>Sobre esse Projeto</span>
-    </h2>
-    <h4 class="about-sub-title">Motivação:</h4>
-    <p class="about-description">
-      Esse projeto veio com dupla motivação, resolver uma dor sobre ter que
-      conversar com alguém no WhatsApp sem ter o interesse de salvar seu contato e
-      seguir estudando e desenvolvendo habilidades no framework Angular.
-    </p>
-    <h4 class="about-sub-title">Desafio:</h4>
-    <p class="about-description">
-      Criar uma página Web de layout agradável utilizando Angular v15 onde seja
-      possível chamar a API do WhatsApp e poder iniciar uma conversa sem a
-      premissa que de ter esse contato salvo em minha agenda.
-    </p>
-    
-    <div class="accordion-wrapper">
-      <app-accordion></app-accordion>
+  <div class="hero-section">
+    <div class="hero-text">
+      <h1 class="hero-title">Simplifique seu fluxo de trabalho no WhatsApp</h1>
+      <p class="hero-description">
+        Inicie conversas sem salvar contatos, gere QR Codes instantâneos e
+        gerencie suas mensagens de forma eficiente em um ambiente profissional e
+        limpo.
+      </p>
+      <button
+        mat-raised-button
+        color="primary"
+        class="custom-btn"
+        (click)="routeTo('#send-to')"
+      >
+        Começar Agora <mat-icon>arrow_forward</mat-icon>
+      </button>
     </div>
   </div>
 
-  <div class="modern-card">
-    <app-send-to></app-send-to>
+  <div class="content-grid">
+    <div class="left-column">
+      <div id="send-to" class="modern-card">
+        <app-send-to></app-send-to>
+      </div>
+
+      <div id="to-forward" class="modern-card">
+        <app-to-forward></app-to-forward>
+      </div>
+    </div>
+
+    <div class="right-column">
+      <div class="modern-card highlight-card">
+        <h3><mat-icon>security</mat-icon> Privacidade Garantida</h3>
+        <p>Seus dados não são armazenados em nossos servidores.</p>
+      </div>
+
+      <div class="modern-card features-card">
+        <h3 class="features-title">Destaques</h3>
+        <ul class="features-list">
+          <li><mat-icon>bolt</mat-icon> Conexão instantânea API</li>
+          <li><mat-icon>devices</mat-icon> Multi-plataforma</li>
+          <li><mat-icon>history_toggle_off</mat-icon> Sem histórico local</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <div class="modern-card">
-    <app-to-forward></app-to-forward>
-  </div>
+  <div class="bottom-grid">
+    <div id="resources" class="resources-container modern-card">
+      <h2>
+        <mat-icon class="material-symbols-outlined">deployed_code</mat-icon>
+        <span>Recursos Utilizados</span>
+      </h2>
+      <div class="resources-badges">
+        <div class="badge-item"><mat-icon>code</mat-icon> TypeScript</div>
+        <div class="badge-item"><mat-icon>layers</mat-icon> Angular v15</div>
+        <div class="badge-item"><mat-icon>palette</mat-icon> SASS / CSS</div>
+        <div class="badge-item"><mat-icon>api</mat-icon> API WhatsApp</div>
+        <div class="badge-item"><mat-icon>qr_code</mat-icon> QR.io API</div>
+        <div class="badge-item"><mat-icon>build</mat-icon> Material UI</div>
+      </div>
+    </div>
 
-  <div id="resources" class="resources-container modern-card">
-    <h2 color="info">
-      <mat-icon class="material-symbols-outlined">deployed_code</mat-icon>
-      <span>Recursos Utilizados</span>
-    </h2>
-    <h4 class="resources-sub-tilte">Stacks:</h4>
-    <ul class="resources-description">
-      <li>TypeScript</li>
-      <li>SASS</li>
-      <li>Angular v15</li>
-      <li>Lint</li>
-      <li>Angular Forms</li>
-      <li>Ngx Mat Intl Tel Input</li>
-      <li>Angular Material</li>
-      <li>Material Icons</li>
-      <li>Customização do Material</li>
-      <li>API WhatsApp</li>
-      <li>Google Charts API</li>
-    </ul>
+    <div id="about" class="about-container modern-card about-card">
+      <h2>
+        <mat-icon class="material-symbols-outlined">info</mat-icon>
+        <span>Sobre o Projeto</span>
+      </h2>
+      <h4 class="about-sub-title">Motivação</h4>
+      <p class="about-description">
+        Este projeto veio com dupla motivação: resolver uma dor sobre ter que
+        conversar com alguém no WhatsApp sem ter o interesse de salvar seu
+        contato e seguir estudando e desenvolvendo habilidades no framework
+        Angular.
+      </p>
+      <h4 class="about-sub-title">Desafio</h4>
+      <p class="about-description">
+        Criar uma página Web de layout agradável onde seja possível chamar a API
+        do WhatsApp e poder iniciar uma conversa sem a premissa de ter esse
+        contato salvo em minha agenda.
+      </p>
+      <div class="accordion-wrapper">
+        <app-accordion></app-accordion>
+      </div>
+    </div>
   </div>
 </main>
 
@@ -61,13 +96,20 @@
 </div>
 
 <footer class="footer-container">
-  <div>
-    <span>Desenvolvido por Flávio Oliveira | flavsoliver@gmail.com | </span>
-    <span>
-      <a href="https://github.com/flaviosoliver/" target="_blank" rel="noopener">
-        https://github.com/flaviosoliver/
-      </a>
+  <div class="footer-brand">WhatsApp Useful</div>
+  <div class="footer-center">
+    <span
+      >Desenvolvido por Flávio Oliveira | 2024 WhatsApp Utility Project</span
+    >
+    <span class="footer-links">
+      <a href="https://github.com/flaviosoliver/" target="_blank" rel="noopener"
+        >GitHub</a
+      >
+      <a href="#">LinkedIn</a>
+      <a href="#">Portfólio</a>
     </span>
   </div>
-  <img src="assets/logo-escuro.svg" width="120px" alt="Logo" />
+  <div class="footer-secure">
+    <mat-icon>lock</mat-icon> <span>100% Client-side and Secure</span>
+  </div>
 </footer>

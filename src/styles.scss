@@ -449,14 +449,14 @@ $custom-theme: mat.define-light-theme(
 
 // MODERN THEME VARIABLES
 :root {
-  --bg-color: #0b141a; // Very dark green-blue WhatsApp style
-  --text-primary: #e9edef;
-  --text-secondary: #8696a0;
+  --bg-color: #f5faff;
+  --text-primary: #131d23;
+  --text-secondary: #3d4a44;
   --accent-color: #00a884;
-  --accent-hover: #029071;
-  --glass-bg: rgba(32, 44, 51, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --accent-hover: #006b53;
+  --surface-color: #ffffff;
+  --surface-border: #e0e0e0;
+  --glass-shadow: 0 2px 12px rgba(18, 140, 126, 0.08);
 }
 
 body.modern-theme {
@@ -483,7 +483,7 @@ body.modern-theme {
   h4,
   h5,
   h6 {
-    font-family: "Outfit", sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
     color: var(--text-primary);
     font-weight: 600;
   }
@@ -492,13 +492,13 @@ body.modern-theme {
     display: flex;
     align-items: center;
     span {
-      color: var(--accent-color);
+      color: var(--text-primary);
       padding-left: 8px;
     }
   }
 
   h4 {
-    color: var(--accent-color);
+    color: var(--text-primary);
     font-weight: 500;
   }
 
@@ -508,10 +508,7 @@ body.modern-theme {
   }
 
   .info-container {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid var(--glass-border);
+    background: transparent;
     padding: 24px;
     text-align: center;
     color: var(--text-secondary);
@@ -525,29 +522,25 @@ body.modern-theme {
   }
 
   .footer-container {
-    background: #111b21;
+    background: #1f321a;
     padding: 24px;
     text-align: center;
-    color: var(--text-secondary);
+    color: #ffffff;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
     font-size: 0.85rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 
     a {
-      color: var(--accent-color);
+      color: #849b7b;
       text-decoration: none;
       transition: color 0.3s ease;
       &:hover {
-        color: var(--accent-hover);
+        color: #ffffff;
       }
-    }
-
-    img {
-      filter: brightness(1.2);
     }
   }
 
@@ -556,13 +549,13 @@ body.modern-theme {
   .mat-mdc-raised-button.mat-accent {
     background-color: var(--accent-color) !important;
     border-radius: 8px;
-    box-shadow: 0 4px 14px rgba(0, 168, 132, 0.4);
+    box-shadow: 0 4px 14px rgba(0, 168, 132, 0.2);
     transition: all 0.3s ease;
 
     &:hover {
       background-color: var(--accent-hover) !important;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 168, 132, 0.6);
+      box-shadow: 0 6px 20px rgba(0, 168, 132, 0.3);
     }
   }
 
@@ -579,10 +572,8 @@ body.modern-theme {
 
   // Modern Card Utility Class
   .modern-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
+    background: var(--surface-color);
+    border: 1px solid var(--surface-border);
     border-radius: 16px;
     box-shadow: var(--glass-shadow);
     padding: 32px;
@@ -592,8 +583,8 @@ body.modern-theme {
       box-shadow 0.3s ease;
 
     &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
   }
 
@@ -612,7 +603,7 @@ body.modern-theme {
   .mat-mdc-form-field {
     .mdc-text-field--outlined {
       background-color: #ffffff !important;
-      border-radius: 4px;
+      border-radius: 8px;
     }
 
     .mdc-text-field__input,
@@ -626,7 +617,7 @@ body.modern-theme {
   }
 
   .mdc-form-field {
-    color: #ffffff !important;
+    color: var(--text-primary) !important;
   }
 
   // Specifically for the telephone input (ngx-mat-intl-tel-input)

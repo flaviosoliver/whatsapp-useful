@@ -1,45 +1,26 @@
 <div class="toolbar-container">
   <mat-toolbar>
-    <button
-      mat-icon-button
-      [matMenuTriggerFor]="menu"
-      aria-label="Example icon-button with a menu"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="routeTo('#about')">
-        <mat-icon color="accent" class="material-symbols-outlined"
-          >rocket_launch</mat-icon
-        >
-        <span>Sobre esse Projeto</span>
-      </button>
-      <button mat-menu-item (click)="routeTo('#send-to')">
-        <mat-icon color="accent" class="material-symbols-outlined"
-          >send</mat-icon
-        >
-        <span>Conversar com</span>
-      </button>
-      <button mat-menu-item (click)="routeTo('#to-forward')">
-        <mat-icon color="accent" class="material-symbols-outlined"
-          >forward</mat-icon
-        >
-        <span>Encaminhar mensagem</span>
-      </button>
-      <button mat-menu-item (click)="routeTo('#resources')">
-        <mat-icon color="accent" class="material-symbols-outlined"
-          >deployed_code</mat-icon
-        >
-        <span>Recursos Utilizados</span>
-      </button>
-      <button mat-menu-item (click)="externalRoute()">
-        <mat-icon color="accent" class="material-symbols-outlined"
-          >code</mat-icon
-        >
-        <span>Veja Repositório no GitHub</span>
-      </button>
-    </mat-menu>
+    <div class="toolbar-brand">
+      <mat-icon class="brand-icon">auto_awesome</mat-icon>
+      <span>WhatsApp Useful</span>
+    </div>
 
-    <span class="fill-remaining-space">Utilitários WhatsApp</span>
+    <span class="fill-remaining-space"></span>
+
+    <div class="toolbar-links">
+      <a class="nav-link" (click)="routeTo('#send-to')">Conversar</a>
+      <a class="nav-link" (click)="routeTo('#to-forward')">Encaminhar</a>
+      <a class="nav-link" (click)="routeTo('#about')">Sobre</a>
+      <a class="nav-link" (click)="routeTo('#resources')">Tecnologias</a>
+    </div>
+
+    <div class="toolbar-actions">
+      <button mat-icon-button (click)="externalRoute()">
+        <mat-icon>help_outline</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
   </mat-toolbar>
 </div>

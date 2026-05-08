@@ -2,63 +2,216 @@
 @import "../styles.scss";
 
 .main-content-wrapper {
-  max-width: 900px;
-  margin: 100px auto 40px; // 100px to avoid overlapping with fixed toolbar
-  padding: 0 20px;
+  max-width: 1200px;
+  margin: 80px auto 40px;
+  padding: 0 24px;
   width: 100%;
   box-sizing: border-box;
   flex: 1;
 }
 
-.about-container {
+.hero-section {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  padding: 40px 0;
+}
 
-  .about-sub-title {
-    margin-bottom: 8px;
-    margin-top: 24px;
-    font-size: 1.1rem;
-  }
+.hero-text {
+  max-width: 600px;
 
-  .about-description {
-    line-height: 1.6;
-    margin-top: 0;
-    color: var(--text-secondary);
-  }
-
-  .accordion-wrapper {
-    margin-top: 32px;
-  }
-
-  li.about-description-topic {
-    color: var(--accent-color);
-  }
-
-  .about-description-text {
+  .hero-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
     color: var(--text-primary);
   }
 
-  strong {
-    color: var(--accent-color);
+  .hero-description {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
   }
 }
 
-.resources-container {
-  .resources-sub-tilte {
-    margin-bottom: 12px;
+.content-grid {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
   }
-  .resources-description {
-    line-height: 1.8;
-    color: var(--text-secondary);
-    column-count: 2;
-    @media (max-width: 600px) {
-      column-count: 1;
+}
+
+.left-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.highlight-card {
+  background: #e6ffda !important;
+  border-color: #b5cdab !important;
+  margin-bottom: 0 !important;
+
+  h3 {
+    color: #128c7e !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0;
+  }
+  
+  p {
+    color: #1f321a;
+  }
+}
+
+.features-card {
+  background: #eaf5fe !important;
+  border-color: #d9e4ec !important;
+  margin-bottom: 0 !important;
+
+  h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+  }
+
+  ul.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      
+      mat-icon {
+        color: var(--accent-color);
+      }
     }
   }
 }
 
-.info-container {
-  h4 {
-    width: 100%;
+.bottom-grid {
+  display: flex;
+  gap: 24px;
+  
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.resources-container {
+  flex: 1;
+
+  .resources-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  
+  .badge-item {
+    background: #e5eff8;
+    color: #006b53;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.about-card {
+  flex: 1;
+  background-color: #006b53 !important;
+  color: #ffffff;
+  
+  h2, h2 span, h4, p, .about-description-text {
+    color: #ffffff !important;
+  }
+
+  mat-icon {
+    color: #8cf1e1;
+  }
+
+  h2 span {
+    color: #ffffff;
+  }
+
+  .about-sub-title {
+    margin-top: 24px;
+    color: #79f9d0 !important;
+  }
+  
+  .accordion-wrapper {
+    margin-top: 24px;
+  }
+}
+
+.footer-container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 32px 48px !important;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 24px !important;
+  }
+
+  .footer-brand {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+  }
+
+  .footer-secure {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    
+    mat-icon {
+      font-size: 18px;
+      height: 18px;
+      width: 18px;
+    }
   }
 }

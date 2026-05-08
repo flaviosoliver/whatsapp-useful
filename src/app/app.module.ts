@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './app-material.module';
 import { NgxMatIntlTelInputComponent } from 'ngx-mat-intl-tel-input';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { AccordionComponent } from './components/accordion/accordion.component';
     BrowserAnimationsModule,
     MaterialModule,
     NgxMatIntlTelInputComponent,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
