@@ -1,69 +1,73 @@
 <app-toolbar></app-toolbar>
-<div id="about" class="about-container">
-  <h2 color="info">
-    <mat-icon class="material-symbols-outlined">rocket_launch</mat-icon>
-    <span>Sobre esse Projeto</span>
-  </h2>
-  <h4 class="about-sub-title">Motivação:</h4>
-  <p class="about-description">
-    Esse projeto veio com dupla motivação, resolver uma dor sobre ter que
-    conversar com alguém no WhatsApp sem ter o interesse de salvar seu contato e
-    seguir estudando e desenvolvendo habilidades no framework Angular.
-  </p>
-  <h4 class="about-sub-title">Desafio:</h4>
-  <p class="about-description">
-    Criar uma página Web de layout agradável utilizando Angular v15 onde seja
-    possível chamar a API do WhatsApp e poder iniciar uma conversa sem a
-    premissa que de ter esse contato salvo em minha agenda.
-  </p>
-</div>
-<app-accordion></app-accordion>
-<br />
-<mat-divider></mat-divider>
-<app-send-to></app-send-to>
-<br />
-<mat-divider></mat-divider>
-<app-to-forward></app-to-forward>
-<br />
-<mat-divider></mat-divider>
-<div id="resources" class="resources-container">
-  <h2 color="info">
-    <mat-icon class="material-symbols-outlined">deployed_code</mat-icon>
-    <span>Recursos Utilizados</span>
-  </h2>
-  <h4 class="resources-sub-tilte">Stacks:</h4>
-  <ul class="resources-description">
-    <li>TypeScript</li>
-    <li>SASS</li>
-    <li>Angular v15</li>
-    <li>Lint</li>
-    <li>Angular Forms</li>
-    <li>Ngx Mat Intl Tel Input</li>
-    <li>Angular Material</li>
-    <li>Material Icons</li>
-    <li>Customização do Material</li>
-    <li>API WhatsApp</li>
-    <li>Google Charts API</li>
-  </ul>
-</div>
+<main class="main-content-wrapper">
+  <div id="about" class="about-container modern-card">
+    <h2 color="info">
+      <mat-icon class="material-symbols-outlined">rocket_launch</mat-icon>
+      <span>Sobre esse Projeto</span>
+    </h2>
+    <h4 class="about-sub-title">Motivação:</h4>
+    <p class="about-description">
+      Esse projeto veio com dupla motivação, resolver uma dor sobre ter que
+      conversar com alguém no WhatsApp sem ter o interesse de salvar seu contato e
+      seguir estudando e desenvolvendo habilidades no framework Angular.
+    </p>
+    <h4 class="about-sub-title">Desafio:</h4>
+    <p class="about-description">
+      Criar uma página Web de layout agradável utilizando Angular v15 onde seja
+      possível chamar a API do WhatsApp e poder iniciar uma conversa sem a
+      premissa que de ter esse contato salvo em minha agenda.
+    </p>
+    
+    <div class="accordion-wrapper">
+      <app-accordion></app-accordion>
+    </div>
+  </div>
+
+  <div class="modern-card">
+    <app-send-to></app-send-to>
+  </div>
+
+  <div class="modern-card">
+    <app-to-forward></app-to-forward>
+  </div>
+
+  <div id="resources" class="resources-container modern-card">
+    <h2 color="info">
+      <mat-icon class="material-symbols-outlined">deployed_code</mat-icon>
+      <span>Recursos Utilizados</span>
+    </h2>
+    <h4 class="resources-sub-tilte">Stacks:</h4>
+    <ul class="resources-description">
+      <li>TypeScript</li>
+      <li>SASS</li>
+      <li>Angular v15</li>
+      <li>Lint</li>
+      <li>Angular Forms</li>
+      <li>Ngx Mat Intl Tel Input</li>
+      <li>Angular Material</li>
+      <li>Material Icons</li>
+      <li>Customização do Material</li>
+      <li>API WhatsApp</li>
+      <li>Google Charts API</li>
+    </ul>
+  </div>
+</main>
+
 <div class="info-container">
   <h4>
     Este site não coleta ou armazena nenhuma informação pessoal ou dados
     utilizados no preenchimento dos seus campos de formulário.
   </h4>
 </div>
-<div class="footer-container">
+
+<footer class="footer-container">
   <div>
     <span>Desenvolvido por Flávio Oliveira | flavsoliver@gmail.com | </span>
     <span>
-      <a
-        href="https://github.com/flaviosoliver/"
-        target="_blank"
-        rel="noopener"
-      >
+      <a href="https://github.com/flaviosoliver/" target="_blank" rel="noopener">
         https://github.com/flaviosoliver/
       </a>
     </span>
   </div>
-  <img src="assets/logo-escuro.svg" width="120px" />
-</div>
+  <img src="assets/logo-escuro.svg" width="120px" alt="Logo" />
+</footer>

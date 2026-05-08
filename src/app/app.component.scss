@@ -1,27 +1,59 @@
 @use "@angular/material" as mat;
 @import "../styles.scss";
-@include mat.core();
+
+.main-content-wrapper {
+  max-width: 900px;
+  margin: 100px auto 40px; // 100px to avoid overlapping with fixed toolbar
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+  flex: 1;
+}
 
 .about-container {
   display: flex;
-  // max-width: 320px;
   flex-direction: column;
-  margin-top: 70px;
 
   .about-sub-title {
-    margin-bottom: 0;
+    margin-bottom: 8px;
+    margin-top: 24px;
+    font-size: 1.1rem;
+  }
+
+  .about-description {
+    line-height: 1.6;
+    margin-top: 0;
+    color: var(--text-secondary);
+  }
+
+  .accordion-wrapper {
+    margin-top: 32px;
   }
 
   li.about-description-topic {
-    color: mat.get-color-from-palette($custom-accent, 500);
+    color: var(--accent-color);
   }
 
   .about-description-text {
-    color: #000;
+    color: var(--text-primary);
   }
 
   strong {
-    color: mat.get-color-from-palette($custom-dark, 500);
+    color: var(--accent-color);
+  }
+}
+
+.resources-container {
+  .resources-sub-tilte {
+    margin-bottom: 12px;
+  }
+  .resources-description {
+    line-height: 1.8;
+    color: var(--text-secondary);
+    column-count: 2;
+    @media (max-width: 600px) {
+      column-count: 1;
+    }
   }
 }
 

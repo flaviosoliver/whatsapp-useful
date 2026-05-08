@@ -3,14 +3,23 @@
 }
 
 .mat-toolbar {
-  background-color: #111b21;
-  color: #00a884;
+  background-color: transparent;
+  color: var(--accent-color);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .toolbar-container {
   position: fixed;
-  z-index: 2;
-  width: -webkit-fill-available;
+  z-index: 1000;
+  width: 100%;
   top: 0px;
   left: 0px;
+  background: rgba(11, 20, 26, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }

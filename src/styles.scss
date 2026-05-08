@@ -447,52 +447,144 @@ $custom-theme: mat.define-light-theme(
   }
 }
 
-body {
-  font-family: Roboto, "Helvetica Neue", "Helvetica";
-  display: flex;
-  width: 95vw;
-  margin: 0 auto;
+// MODERN THEME VARIABLES
+:root {
+  --bg-color: #0b141a; // Very dark green-blue WhatsApp style
+  --text-primary: #e9edef;
+  --text-secondary: #8696a0;
+  --accent-color: #00a884;
+  --accent-hover: #029071;
+  --glass-bg: rgba(32, 44, 51, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
 
-  p,
-  label {
-    font-family: Lato;
+body.modern-theme {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+
+  p, label, span, div {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+    font-weight: 600;
   }
 
-  h2 span {
-    color: $green-b;
-    padding-left: 5px;
+  h2 {
+    display: flex;
+    align-items: center;
+    span {
+      color: var(--accent-color);
+      padding-left: 8px;
+    }
   }
 
   h4 {
-    color: $green-c;
+    color: var(--accent-color);
+    font-weight: 500;
+  }
+
+  // Override Material Typography
+  .mat-typography {
+    font-family: 'Inter', sans-serif;
   }
 
   .info-container {
-    background-color: $green-e;
-    height: 70px;
-    vertical-align: middle;
-    display: flex;
-    align-content: center;
-    flex-wrap: wrap;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--glass-border);
+    padding: 24px;
     text-align: center;
+    color: var(--text-secondary);
+    
+    h4 {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin: 0;
+      font-weight: 400;
+    }
   }
 
   .footer-container {
-    vertical-align: middle;
+    background: #111b21;
+    padding: 24px;
     text-align: center;
-    color: $green-d;
+    color: var(--text-secondary);
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    font-weight: 600;
-    font-size: smaller;
-    background-color: mat.get-color-from-palette($custom-dark, 500);
+    gap: 16px;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(0,0,0,0.5);
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      &:hover {
+        color: var(--accent-hover);
+      }
+    }
+    
+    img {
+      filter: brightness(1.2);
+    }
+  }
+
+  // Material Button Overrides
+  .mat-mdc-raised-button.mat-primary,
+  .mat-mdc-raised-button.mat-accent {
+    background-color: var(--accent-color) !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0, 168, 132, 0.4);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: var(--accent-hover) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 168, 132, 0.6);
+    }
   }
 
   .custom-btn {
     color: #ffffff;
     margin: 0 5px;
+    border-radius: 8px;
+    padding: 0 24px;
+    height: 44px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  // Modern Card Utility Class
+  .modern-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+    }
   }
 
   .send-to-container
