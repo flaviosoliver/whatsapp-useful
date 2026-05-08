@@ -324,17 +324,17 @@ $custom-theme: mat.define-light-theme(
   }
 
   .mat-mdc-radio-button.mat-accent {
-    --mdc-radio-disabled-selected-icon-color: #000;
-    --mdc-radio-disabled-unselected-icon-color: #000;
-    --mdc-radio-unselected-focus-icon-color: #212121;
-    --mdc-radio-unselected-hover-icon-color: #212121;
-    --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
-    --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-disabled-selected-icon-color: #fff;
+    --mdc-radio-disabled-unselected-icon-color: #fff;
+    --mdc-radio-unselected-focus-icon-color: #868686;
+    --mdc-radio-unselected-hover-icon-color: #868686;
+    --mdc-radio-unselected-icon-color: #868686;
+    --mdc-radio-unselected-pressed-icon-color: #868686;
     --mdc-radio-selected-focus-icon-color: #25d366;
     --mdc-radio-selected-hover-icon-color: #25d366;
     --mdc-radio-selected-icon-color: #25d366;
     --mdc-radio-selected-pressed-icon-color: #25d366;
-    --mat-mdc-radio-ripple-color: #000;
+    --mat-mdc-radio-ripple-color: #fff;
     --mat-mdc-radio-checked-ripple-color: #25d366;
   }
 
@@ -344,12 +344,12 @@ $custom-theme: mat.define-light-theme(
     --mdc-checkbox-selected-hover-icon-color: #25d366;
     --mdc-checkbox-selected-icon-color: #25d366;
     --mdc-checkbox-selected-pressed-icon-color: #25d366;
-    --mdc-checkbox-unselected-focus-icon-color: #212121;
-    --mdc-checkbox-unselected-hover-icon-color: #212121;
-    --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
-    --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.38);
-    --mdc-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
-    --mdc-checkbox-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-checkbox-unselected-focus-icon-color: #868686;
+    --mdc-checkbox-unselected-hover-icon-color: #868686;
+    --mdc-checkbox-disabled-selected-icon-color: #fff;
+    --mdc-checkbox-disabled-unselected-icon-color: #fff;
+    --mdc-checkbox-unselected-icon-color: #868686;
+    --mdc-checkbox-unselected-pressed-icon-color: #868686;
   }
 
   .ng-valid.mat-primary.mat-focused {
@@ -460,7 +460,7 @@ $custom-theme: mat.define-light-theme(
 }
 
 body.modern-theme {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-primary);
   margin: 0;
@@ -470,12 +470,20 @@ body.modern-theme {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 
-  p, label, span, div {
-    font-family: 'Inter', sans-serif;
+  p,
+  label,
+  span,
+  div {
+    font-family: "Inter", sans-serif;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Outfit", sans-serif;
     color: var(--text-primary);
     font-weight: 600;
   }
@@ -496,7 +504,7 @@ body.modern-theme {
 
   // Override Material Typography
   .mat-typography {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   .info-container {
@@ -507,7 +515,7 @@ body.modern-theme {
     padding: 24px;
     text-align: center;
     color: var(--text-secondary);
-    
+
     h4 {
       color: var(--text-secondary);
       font-size: 0.9rem;
@@ -527,7 +535,7 @@ body.modern-theme {
     justify-content: center;
     gap: 16px;
     font-size: 0.85rem;
-    border-top: 1px solid rgba(0,0,0,0.5);
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
 
     a {
       color: var(--accent-color);
@@ -537,7 +545,7 @@ body.modern-theme {
         color: var(--accent-hover);
       }
     }
-    
+
     img {
       filter: brightness(1.2);
     }
@@ -550,7 +558,7 @@ body.modern-theme {
     border-radius: 8px;
     box-shadow: 0 4px 14px rgba(0, 168, 132, 0.4);
     transition: all 0.3s ease;
-    
+
     &:hover {
       background-color: var(--accent-hover) !important;
       transform: translateY(-2px);
@@ -565,7 +573,7 @@ body.modern-theme {
     padding: 0 24px;
     height: 44px;
     font-weight: 600;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     letter-spacing: 0.5px;
   }
 
@@ -579,8 +587,10 @@ body.modern-theme {
     box-shadow: var(--glass-shadow);
     padding: 32px;
     margin-bottom: 24px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
     &:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
@@ -596,5 +606,31 @@ body.modern-theme {
       top: -19px;
       position: relative;
     }
+  }
+
+  // Inputs and Textareas - White background for contrast
+  .mat-mdc-form-field {
+    .mdc-text-field--outlined {
+      background-color: #ffffff !important;
+      border-radius: 4px;
+    }
+
+    .mdc-text-field__input,
+    textarea.mat-mdc-input-element {
+      color: #111b21 !important;
+
+      &::placeholder {
+        color: #667781 !important;
+      }
+    }
+  }
+
+  .mdc-form-field {
+    color: #ffffff !important;
+  }
+
+  // Specifically for the telephone input (ngx-mat-intl-tel-input)
+  .check-number-form-field-tel input {
+    color: #111b21 !important;
   }
 }
